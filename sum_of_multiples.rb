@@ -4,11 +4,9 @@ class SumOfMultiples
   end
 
   def to(upper_limit)
-    sum = 0
-    (1..upper_limit - 1).each do |i|
-      sum += i if @numbers.any? { |number| (i % number).zero? }
+    1.upto(upper_limit - 1).inject(0) do |sum, i|
+      @numbers.any? { |number| (i % number).zero? } ? sum + i : sum
     end
-    sum
   end
 end
 

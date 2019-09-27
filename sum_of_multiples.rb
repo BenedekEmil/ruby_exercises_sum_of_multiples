@@ -4,14 +4,16 @@ class SumOfMultiples
   end
 
   def to(upper_limit)
-    non_unique_array = []
+    sum = 0
     (1..upper_limit - 1).each do |i|
       @numbers.each do |number|
-        non_unique_array << i if (i % number).zero?
+        if (i % number).zero?
+          sum += i
+          break
+        end
       end
     end
-    non_unique_array.uniq
-                    .sum
+    sum
   end
 end
 
